@@ -1,0 +1,21 @@
+  <table class="table table-striped table-hover table-sm" *ngIf="servico.lista.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">MARCA</th>
+        <th scope="col">VALOR</th>
+        <th scope="col">IPVA</th>
+        <th scope="col">TIPO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of servico.lista">
+        <td>{{item.marca}}</td>
+        <td class="text-right">{{item.valor | currency:'BRL'}}</td>
+        <td class="text-right">{{item.ipva | currency:'BRL'}}</td>
+        <td>{{item.tipo}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="4" class="text-right">Total: {{servico.lista.length}}</td></tr>
+    </tfoot>
+  </table>

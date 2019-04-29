@@ -1,0 +1,25 @@
+<div class="col-12">
+  <div class="form-group">
+      <h6>Caminhao</h6>
+    <label for="marca">Marca</label>
+    <select [(ngModel)]="veiculo.marca" class="form-control" id="marca">
+      <option *ngFor="let item of marcas">{{item}}</option>
+    </select>
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-group">
+    <label for="valor">Valor</label>
+    <input appNumero [(ngModel)]="veiculo.valor" class="form-control text-right" (ngModelChange)="veiculo.ipva=veiculo.valor*ipva" id="valor">
+  </div>
+</div>
+<div class="col-12">
+  <div class="form-group">
+    <label for="ipva">IPVA</label>
+    <input disabled appNumero [(ngModel)]="veiculo.ipva" class="form-control text-right" id="ipva">
+  </div>
+</div>
+<div class="col-12">
+  <button (click)="salvar()" [disabled]="!(veiculo.marca && veiculo.valor && veiculo.ipva)" class="btn btn-secondary mr-3">Salvar</button>
+  <button (click)="reset()" class="btn btn-secondary">Limpar</button>
+</div>
